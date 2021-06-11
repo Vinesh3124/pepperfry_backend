@@ -28,6 +28,7 @@ const firstSaleLogoCollections = "firstSaleLogo"
 const newArivalListCollections = "newArivalList"
 const shopByStyleListCollections = "shopByStyleList"
 const spotLightListCollections = "spotLightList"
+const searchCollections = "search"
 
 //user data
 db.initialize(dbName, collectionName, function(dbCollection) { // successCallback
@@ -521,6 +522,28 @@ db.initialize(dbName, spotLightListCollections, function(dbCollection){
             res.status(200).json(result)
         })
     })
+},
+
+function(err){
+    throw(err)
+})
+// searching
+db.initialize(dbName, searchCollections, function(dbCollection){
+    // to get all the search
+    server.get("/search/:item", (req, res) => {
+        const data = req.params.item
+        dbCollection.find({"name": {$regex: data}}).limit(8).toArray((error, result) => {
+            if (error) throw error;
+            res.status(200).json(result);
+        });
+    });
+    //to get a single search
+    // server.get("/search/:id", (req, res) => {
+    //     dbCollection.find({"_id": ObjectId(req.params.id)}).toArray((error, result)=>{
+    //         if(error) throw error
+    //         res.status(200).json(result)
+    //     })
+    // })
 },
 
 function(err){
