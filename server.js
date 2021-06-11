@@ -19,6 +19,15 @@ const happyHomeEssentialsCollections = "happyHomeEssentials"
 const decorationListCollections = "decorationList"
 const modernStyleBannersCollections = "modernStyleBanners"
 const nightEssentialCollections = "nightEssential"
+const brandListCollections = "brandList"
+const cabinetryCollections = "cabinetry"
+const categoryHeadingListCollections = "categoryHeadingList"
+const facilitiesListCollections = "facilitiesList"
+const faqListCollections = "faqList"
+const firstSaleLogoCollections = "firstSaleLogo"
+const newArivalListCollections = "newArivalList"
+const shopByStyleListCollections = "shopByStyleList"
+const spotLightListCollections = "spotLightList"
 
 //user data
 db.initialize(dbName, collectionName, function(dbCollection) { // successCallback
@@ -160,7 +169,6 @@ db.initialize(dbName, tablesCollection, function(dbCollection){
 function(err){
     throw(err)
 })
-
 //beds data
 db.initialize(dbName, diningbarCollection, function(dbCollection){
     // to get all the beds
@@ -182,7 +190,6 @@ db.initialize(dbName, diningbarCollection, function(dbCollection){
 function(err){
     throw(err)
 })
-
 //beds data
 db.initialize(dbName, bedsCollection, function(dbCollection){
     // to get all the beds
@@ -204,7 +211,6 @@ db.initialize(dbName, bedsCollection, function(dbCollection){
 function(err){
     throw(err)
 })
-
 //homeChickHome data
 db.initialize(dbName, homeChickCollection, function(dbCollection){
     // to get all the homeChickHome
@@ -226,7 +232,6 @@ db.initialize(dbName, homeChickCollection, function(dbCollection){
 function(err){
     throw(err)
 })
-
 //houseFavList data
 db.initialize(dbName, houseFavListCollection, function(dbCollection){
     // to get all the houseFavList
@@ -248,7 +253,6 @@ db.initialize(dbName, houseFavListCollection, function(dbCollection){
 function(err){
     throw(err)
 })
-
 //happyHomeEssentials data
 db.initialize(dbName, happyHomeEssentialsCollections, function(dbCollection){
     // to get all the happyHomeEssentials
@@ -270,7 +274,6 @@ db.initialize(dbName, happyHomeEssentialsCollections, function(dbCollection){
 function(err){
     throw(err)
 })
-
 //decorationList data
 db.initialize(dbName, decorationListCollections, function(dbCollection){
     // to get all the decorationList
@@ -292,7 +295,6 @@ db.initialize(dbName, decorationListCollections, function(dbCollection){
 function(err){
     throw(err)
 })
-
 //modernStyleBanners data
 db.initialize(dbName, modernStyleBannersCollections, function(dbCollection){
     // to get all the modernStyleBanners
@@ -314,8 +316,7 @@ db.initialize(dbName, modernStyleBannersCollections, function(dbCollection){
 function(err){
     throw(err)
 })
-
-//nightEssential data
+// nightEssential data
 db.initialize(dbName, nightEssentialCollections, function(dbCollection){
     // to get all the nightEssential
     server.get("/nightEssential", (req, res) => {
@@ -326,6 +327,195 @@ db.initialize(dbName, nightEssentialCollections, function(dbCollection){
     });
     //to get a single nightEssential
     server.get("/nightEssential/:id", (req, res) => {
+        dbCollection.find({"_id": ObjectId(req.params.id)}).toArray((error, result)=>{
+            if(error) throw error
+            res.status(200).json(result)
+        })
+    })
+},
+
+function(err){
+    throw(err)
+})
+// brandList data
+db.initialize(dbName, brandListCollections, function(dbCollection){
+    // to get all the brandList
+    server.get("/brandList", (req, res) => {
+        dbCollection.find().toArray((error, result) => {
+            if (error) throw error;
+            res.status(200).json(result);
+        });
+    });
+    //to get a single brandList
+    server.get("/brandList/:id", (req, res) => {
+        dbCollection.find({"_id": ObjectId(req.params.id)}).toArray((error, result)=>{
+            if(error) throw error
+            res.status(200).json(result)
+        })
+    })
+},
+
+function(err){
+    throw(err)
+})
+// cabinetry data
+db.initialize(dbName, cabinetryCollections, function(dbCollection){
+    // to get all the cabinetry
+    server.get("/cabinetry", (req, res) => {
+        dbCollection.find().toArray((error, result) => {
+            if (error) throw error;
+            res.status(200).json(result);
+        });
+    });
+    //to get a single cabinetry
+    server.get("/cabinetry/:id", (req, res) => {
+        dbCollection.find({"_id": ObjectId(req.params.id)}).toArray((error, result)=>{
+            if(error) throw error
+            res.status(200).json(result)
+        })
+    })
+},
+
+function(err){
+    throw(err)
+})
+// categoryHeadingList data
+db.initialize(dbName, categoryHeadingListCollections, function(dbCollection){
+    // to get all the categoryHeadingList
+    server.get("/categoryHeadingList", (req, res) => {
+        dbCollection.find().toArray((error, result) => {
+            if (error) throw error;
+            res.status(200).json(result);
+        });
+    });
+    //to get a single categoryHeadingList
+    server.get("/categoryHeadingList/:id", (req, res) => {
+        dbCollection.find({"_id": ObjectId(req.params.id)}).toArray((error, result)=>{
+            if(error) throw error
+            res.status(200).json(result)
+        })
+    })
+},
+
+function(err){
+    throw(err)
+})
+// facilitiesList data
+db.initialize(dbName, facilitiesListCollections, function(dbCollection){
+    // to get all the facilitiesList
+    server.get("/facilitiesList", (req, res) => {
+        dbCollection.find().toArray((error, result) => {
+            if (error) throw error;
+            res.status(200).json(result);
+        });
+    });
+    //to get a single facilitiesList
+    server.get("/facilitiesList/:id", (req, res) => {
+        dbCollection.find({"_id": ObjectId(req.params.id)}).toArray((error, result)=>{
+            if(error) throw error
+            res.status(200).json(result)
+        })
+    })
+},
+
+function(err){
+    throw(err)
+})
+// faqList data
+db.initialize(dbName, faqListCollections, function(dbCollection){
+    // to get all the faqList
+    server.get("/faqList", (req, res) => {
+        dbCollection.find().toArray((error, result) => {
+            if (error) throw error;
+            res.status(200).json(result);
+        });
+    });
+    //to get a single faqList
+    server.get("/faqList/:id", (req, res) => {
+        dbCollection.find({"_id": ObjectId(req.params.id)}).toArray((error, result)=>{
+            if(error) throw error
+            res.status(200).json(result)
+        })
+    })
+},
+
+function(err){
+    throw(err)
+})
+// firstSaleLogo data
+db.initialize(dbName, firstSaleLogoCollections, function(dbCollection){
+    // to get all the firstSaleLogo
+    server.get("/firstSaleLogo", (req, res) => {
+        dbCollection.find().toArray((error, result) => {
+            if (error) throw error;
+            res.status(200).json(result);
+        });
+    });
+    //to get a single firstSaleLogo
+    server.get("/firstSaleLogo/:id", (req, res) => {
+        dbCollection.find({"_id": ObjectId(req.params.id)}).toArray((error, result)=>{
+            if(error) throw error
+            res.status(200).json(result)
+        })
+    })
+},
+
+function(err){
+    throw(err)
+})
+// newArivalList data
+db.initialize(dbName, newArivalListCollections, function(dbCollection){
+    // to get all the newArivalList
+    server.get("/newArivalList", (req, res) => {
+        dbCollection.find().toArray((error, result) => {
+            if (error) throw error;
+            res.status(200).json(result);
+        });
+    });
+    //to get a single newArivalList
+    server.get("/newArivalList/:id", (req, res) => {
+        dbCollection.find({"_id": ObjectId(req.params.id)}).toArray((error, result)=>{
+            if(error) throw error
+            res.status(200).json(result)
+        })
+    })
+},
+
+function(err){
+    throw(err)
+})
+// shopByStyleList data
+db.initialize(dbName, shopByStyleListCollections, function(dbCollection){
+    // to get all the shopByStyleList
+    server.get("/shopByStyleList", (req, res) => {
+        dbCollection.find().toArray((error, result) => {
+            if (error) throw error;
+            res.status(200).json(result);
+        });
+    });
+    //to get a single shopByStyleList
+    server.get("/shopByStyleList/:id", (req, res) => {
+        dbCollection.find({"_id": ObjectId(req.params.id)}).toArray((error, result)=>{
+            if(error) throw error
+            res.status(200).json(result)
+        })
+    })
+},
+
+function(err){
+    throw(err)
+})
+// spotLightList data
+db.initialize(dbName, spotLightListCollections, function(dbCollection){
+    // to get all the spotLightList
+    server.get("/spotLightList", (req, res) => {
+        dbCollection.find().toArray((error, result) => {
+            if (error) throw error;
+            res.status(200).json(result);
+        });
+    });
+    //to get a single spotLightList
+    server.get("/spotLightList/:id", (req, res) => {
         dbCollection.find({"_id": ObjectId(req.params.id)}).toArray((error, result)=>{
             if(error) throw error
             res.status(200).json(result)
