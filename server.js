@@ -29,6 +29,11 @@ const newArivalListCollections = "newArivalList"
 const shopByStyleListCollections = "shopByStyleList"
 const spotLightListCollections = "spotLightList"
 const searchCollections = "search"
+const bedroomBrandListCollections = "bedroomBrandList" 
+const bedroomCategoryHeadingListCollections = "bedroomCategoryHeadingList"
+const bedroomNewArivalListCollections = "bedroomNewArivalList"
+const bedroomShopByStyleCollections = "bedroomShopByStyle"
+const bedroomSpotlightListCollections = "bedroomSpotlightList"
 
 //user data
 db.initialize(dbName, collectionName, function(dbCollection) { // successCallback
@@ -546,6 +551,111 @@ db.initialize(dbName, searchCollections, function(dbCollection){
     // })
 },
 
+function(err){
+    throw(err)
+})
+// bedroomBrandList data
+db.initialize(dbName, bedroomBrandListCollections, function(dbCollection){
+    // to get all the bedroomBrandList
+    server.get("/bedroomBrandList", (req, res) => {
+        const data = req.params.item
+        dbCollection.find({}).toArray((error, result) => {
+            if (error) throw error;
+            res.status(200).json(result);
+        });
+    });
+    // to get a single bedroomBrandList
+    server.get("/bedroomBrandList/:id", (req, res) => {
+        dbCollection.find({"_id": ObjectId(req.params.id)}).toArray((error, result)=>{
+            if(error) throw error
+            res.status(200).json(result)
+        })
+    })
+},
+function(err){
+    throw(err)
+})
+// bedroomCategoryHeadingList data
+db.initialize(dbName, bedroomCategoryHeadingListCollections, function(dbCollection){
+    // to get all the bedroomCategoryHeadingList
+    server.get("/bedroomCategoryHeadingList", (req, res) => {
+        const data = req.params.item
+        dbCollection.find({}).toArray((error, result) => {
+            if (error) throw error;
+            res.status(200).json(result);
+        });
+    });
+    // to get a single bedroomCategoryHeadingList
+    server.get("/bedroomCategoryHeadingList/:id", (req, res) => {
+        dbCollection.find({"_id": ObjectId(req.params.id)}).toArray((error, result)=>{
+            if(error) throw error
+            res.status(200).json(result)
+        })
+    })
+},
+function(err){
+    throw(err)
+})
+// bedroomNewArivalList data
+db.initialize(dbName, bedroomNewArivalListCollections, function(dbCollection){
+    // to get all the bedroomNewArivalList
+    server.get("/bedroomNewArivalList", (req, res) => {
+        const data = req.params.item
+        dbCollection.find({}).toArray((error, result) => {
+            if (error) throw error;
+            res.status(200).json(result);
+        });
+    });
+    // to get a single bedroomNewArivalList
+    server.get("/bedroomNewArivalList/:id", (req, res) => {
+        dbCollection.find({"_id": ObjectId(req.params.id)}).toArray((error, result)=>{
+            if(error) throw error
+            res.status(200).json(result)
+        })
+    })
+},
+function(err){
+    throw(err)
+})
+// bedroomShopByStyle data
+db.initialize(dbName, bedroomShopByStyleCollections, function(dbCollection){
+    // to get all the bedroomShopByStyle
+    server.get("/bedroomShopByStyle", (req, res) => {
+        const data = req.params.item
+        dbCollection.find({}).toArray((error, result) => {
+            if (error) throw error;
+            res.status(200).json(result);
+        });
+    });
+    // to get a single bedroomShopByStyle
+    server.get("/bedroomShopByStyle/:id", (req, res) => {
+        dbCollection.find({"_id": ObjectId(req.params.id)}).toArray((error, result)=>{
+            if(error) throw error
+            res.status(200).json(result)
+        })
+    })
+},
+function(err){
+    throw(err)
+})
+// bedroomSpotlightList data
+db.initialize(dbName, bedroomSpotlightListCollections, function(dbCollection){
+    // to get all the bedroomSpotlightList
+    server.get("/bedroomSpotlightList", (req, res) => {
+        const data = req.params.item
+        dbCollection.find({}).toArray((error, result) => {
+            if (error) throw error;
+            res.status(200).json(result);
+        });
+    });
+    // to get a single bedroomSpotlightList
+    server.get("/bedroomSpotlightList/:id", (req, res) => {
+        dbCollection.find({"_id": ObjectId(req.params.id)}).toArray((error, result)=>{
+            if(error) throw error
+            res.status(200).json(result)
+        })
+    })
+},
 function(err){
     throw(err)
 })
