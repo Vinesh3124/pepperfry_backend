@@ -7,6 +7,7 @@ server.use(cors());
 const path = require('path')
 const shortid = require('shortid')
 const Razorpay = require('razorpay')
+const port = process.env.PORT || 3000
 
 const db = require("./db");
 const { ObjectId } = require("bson");
@@ -1173,6 +1174,6 @@ server.post('/razorpay/:amount', async (req, res) => {
 
 /////////////////Razor Pay End///////////////////////////////////////////
 
-server.listen(3001, () => {
-    console.log(`Server listening at 3001`);
+server.listen(port, () => {
+    console.log(`Server listening at ${port}`);
 });
